@@ -19,11 +19,11 @@ public class ProducerDemoWithCallBack {
 
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
-        for(int i=0;i<10;i++) {
-
-
-            ProducerRecord<String, String> record = new ProducerRecord<>("first-topic", "Hello world : "+ Integer.toString(i));
-
+        for (int i = 0; i < 10; i++) {
+            String value = "Values with Key " + Integer.toString(i);
+            String key = "id_"+Integer.toString(i);
+            ProducerRecord<String, String> record = new ProducerRecord<>("first-topic", key,value);
+            System.out.println("key : " + key);
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
