@@ -10,7 +10,7 @@ import java.util.Properties;
 public class ProducerDemoWithCallBack {
 
     public static void main(String[] args) {
-        Logger LOGGER = LoggerFactory.getLogger(ProducerDemoWithCallBack.class);
+        Logger LOGGER = LoggerFactory.getLogger(ProducerDemoWithCallBack.class.getName());
         String bootStrapServer = "localhost:9092";
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootStrapServer);
@@ -20,7 +20,7 @@ public class ProducerDemoWithCallBack {
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
         for (int i = 0; i < 10; i++) {
-            String value = "Values with Key " + Integer.toString(i);
+            String value = "Values with new Key " + Integer.toString(i);
             String key = "id_"+Integer.toString(i);
             ProducerRecord<String, String> record = new ProducerRecord<>("first-topic", key,value);
             System.out.println("key : " + key);
