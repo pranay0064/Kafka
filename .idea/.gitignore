@@ -1,0 +1,26 @@
+# Application
+logs
+*.log
+
+# Docker
+datadir
+
+# Eclipse
+.classpath
+.settings
+.project
+
+# IntelliJ
+.idea
+*.iml
+
+# Maven
+target
+*.xml.releaseBackup
+release.properties
+
+# MacOS
+.DS_Store
+
+# Flow
+.flattened-pom.xml
